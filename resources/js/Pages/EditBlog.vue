@@ -53,7 +53,7 @@
                         <div class="m-auto bg-white w-3/4 h-3/4 relative z-10 overflow-auto">
                             <div class="relative z-50">
                                 <svg width="35" height="35" class="absolute right-0 top-0 pr-3 pt-3 cursor-pointer" viewBox="0 0 68 68" fill="none"
-                                    @click="preview = false">
+                                     @click="preview = false">
                                     <path
                                         d="M66.8159 1.17549C65.2544 -0.391831 62.7076 -0.391831 61.1346 1.17549L33.9957 28.3213L6.86252 1.17549C5.29526 -0.391831 2.74846 -0.391831 1.18121 1.17549C-0.386053 2.74282 -0.386053 5.28972 1.18121 6.85705L28.3144 34.0029L1.17544 61.1487C-0.391815 62.7103 -0.391815 65.2572 1.17544 66.8303C1.95907 67.6139 2.98471 68 4.01034 68C5.04173 68 6.06737 67.6139 6.85099 66.8303L33.9957 39.6844L61.1346 66.8303C61.924 67.6139 62.9439 68 63.981 68C65.0067 68 66.0265 67.6139 66.8159 66.8303C68.3889 65.2572 68.3889 62.7103 66.8159 61.1487L39.6712 34.0029L66.8159 6.85705C68.3947 5.28972 68.3947 2.74282 66.8159 1.17549Z"
                                         fill="#C4C4C4"/>
@@ -69,15 +69,15 @@
 </template>
 
 <style>
-    .ql-editor{
-        resize: vertical !important;
-        height: 400px;
-    }
-    .ql-toolbar{
-        border: none !important;
-        background-color: #111111;
-        padding: 5px 0;
-    }
+.ql-editor{
+    resize: vertical !important;
+    height: 400px;
+}
+.ql-toolbar{
+    border: none !important;
+    background-color: #111111;
+    padding: 5px 0;
+}
 </style>
 
 <script>

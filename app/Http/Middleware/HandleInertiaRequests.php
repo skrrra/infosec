@@ -3,6 +3,9 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Session;
+use Inertia\Inertia;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -40,6 +43,15 @@ class HandleInertiaRequests extends Middleware
             'auth.user' => fn () => $request->user()
                 ? $request->user()
                 : null,
+        ]);
+    }
+
+    public function notification(){
+        Inertia::share([
+            'notify' => function() {
+                Cache::flush();
+                return Session::get('notify');
+            }
         ]);
     }
 }

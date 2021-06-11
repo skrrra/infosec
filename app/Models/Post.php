@@ -11,4 +11,11 @@ class Post extends Model
     protected $guarded = [
         'id'
     ];
+
+    protected $casts = ['created_at' => 'datetime:M d, Y'];
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

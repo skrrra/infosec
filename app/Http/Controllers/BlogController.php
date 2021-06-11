@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
@@ -11,7 +12,10 @@ class BlogController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Blog');
+        $posts = User::find(1)->posts()->with('users')->orderByDesc('id')->get();
+        return Inertia::render('Blog', [
+            'posts' => $posts
+        ]);
     }
 
     public function create()
@@ -21,7 +25,6 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
         $validate = $request->validate([
             'user_id' => ['required'],
             'title' => ['required', 'min:5', 'bail'],
@@ -31,4 +34,22 @@ class BlogController extends Controller
         Post::create($validate);
         return Redirect::route('home');
     }
+
+    public function edit(Post $post)
+    {
+        $post = $post->get();
+        dd($post);
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        return Redirect::route('blog');
+    }
+
 }

@@ -60,7 +60,8 @@
         <div class="absolute bottom-0 max-w-xxs w-full">
             <div class="flex flex-row justify-between w-full border-t-2 border-gray-border pt-3 ml-5">
                 <ToggleSlider></ToggleSlider>
-                <inertia-link :href="route('logout')" method="post" as="button" class="mt-1 flex flex-row focus:outline-none text-gray-200 hover:text-yellow-dark">
+                <inertia-link :href="route('logout')" method="post" as="button" v-if="$page.props.auth"
+                              class="mt-1 flex flex-row focus:outline-none text-gray-200 hover:text-yellow-dark">
                     <svg width="18" height="19" viewBox="0 0 23 24" fill="none" class="fill-current">
                         <path d="M3.6665 18.9999H5.99984V21.3333H19.9998V2.66659H5.99984V4.99992H3.6665V1.49992C3.6665 1.1905 3.78942 0.893753 4.00821 0.674961C4.22701 0.456168 4.52375 0.333252 4.83317 0.333252H21.1665C21.4759 0.333252 21.7727 0.456168 21.9915 0.674961C22.2103 0.893753 22.3332 1.1905 22.3332 1.49992V22.4999C22.3332 22.8093 22.2103 23.1061 21.9915 23.3249C21.7727 23.5437 21.4759 23.6666 21.1665 23.6666H4.83317C4.52375 23.6666 4.22701 23.5437 4.00821 23.3249C3.78942 23.1061 3.6665 22.8093 3.6665 22.4999V18.9999ZM5.99984 10.8333H14.1665V13.1666H5.99984V16.6666L0.166504 11.9999L5.99984 7.33325V10.8333Z"/>
                     </svg>

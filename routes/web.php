@@ -33,13 +33,16 @@ Route::get('/home', [LiveStreamController::class, 'liveHackers'])
             ->name('home');
 Route::get('/hackers', [HackerController::class, 'index'])
             ->name('hackers');
-Route::get('/blog', [BlogController::class, 'index']);
+Route::get('/blog', [BlogController::class, 'index'])
+            ->name('blog');
 Route::get('/profile', [ProfileController::class, 'index'])
             ->middleware(['auth'])
             ->name('myprofile');
 Route::get('/create-blog', [BlogController::class, 'create'])
             ->name('createblog');
 Route::post('/blog/make', [BlogController::class, 'store']);
+Route::delete('/blog/delete/{post:id}', [BlogController::class, 'destroy']);
+Route::get('/blog/edit/{post:id}', [BlogController::class, 'update'])->name('editBlog');
 
 Route::patch('/profile/password-update/{user}', [ProfileController::class, 'updatePassword']);
 Route::patch('/profile/email-update/{user}', [ProfileController::class, 'updateEmail']);
